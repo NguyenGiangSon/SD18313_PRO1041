@@ -17,6 +17,7 @@ public class ViewsProductDto {
     private boolean trangThai;
     private int soLuong;
     private String moTa;
+    private String maSanPhamCt;
 
     public ViewsProductDto() {
     }
@@ -38,6 +39,34 @@ public class ViewsProductDto {
         this.trangThai = trangThai;
         this.soLuong = soLuong;
         this.moTa = moTa;
+    }
+
+    public ViewsProductDto(int id, String maSanPham, String tenSP, float giaBan, float giaNhap, int danhMuc, String danhMucText, int hangSx, String nhaSxText, int kichCo, String kichCoText, int mauSac, String mauSacText, boolean trangThai, int soLuong, String moTa, String maSanPhamCt) {
+        this.id = id;
+        this.maSanPham = maSanPham;
+        this.tenSP = tenSP;
+        this.giaBan = giaBan;
+        this.giaNhap = giaNhap;
+        this.danhMuc = danhMuc;
+        this.danhMucText = danhMucText;
+        this.hangSx = hangSx;
+        this.nhaSxText = nhaSxText;
+        this.kichCo = kichCo;
+        this.kichCoText = kichCoText;
+        this.mauSac = mauSac;
+        this.mauSacText = mauSacText;
+        this.trangThai = trangThai;
+        this.soLuong = soLuong;
+        this.moTa = moTa;
+        this.maSanPhamCt = maSanPhamCt;
+    }
+
+    public String getMaSanPhamCt() {
+        return maSanPhamCt;
+    }
+
+    public void setMaSanPhamCt(String maSanPhamCt) {
+        this.maSanPhamCt = maSanPhamCt;
     }
 
     public int getId() {

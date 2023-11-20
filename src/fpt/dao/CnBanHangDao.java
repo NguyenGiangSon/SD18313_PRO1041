@@ -66,6 +66,12 @@ public class CnBanHangDao extends DaoHelper {
                 "{CALL cnbanHang_select_sanpham(?) }",
                 tuKhoa);
     }
+    
+     public SanPhamDto getSanPhamByMaSp(String maSp) {
+        return excuesObject(SanPhamDto.class,
+                "{CALL cnbanHang_select_sanpham_by_masp(?) }",
+                maSp);
+    }
 
     public boolean insertOrUpdateHoDonCt(HoaDonCtDto object) {
         System.out.println(object.toString());

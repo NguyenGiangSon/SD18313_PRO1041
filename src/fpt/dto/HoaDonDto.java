@@ -1,5 +1,6 @@
 package fpt.dto;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class HoaDonDto {
@@ -52,6 +53,13 @@ public class HoaDonDto {
 
     public float getTongTien() {
         return tongTien;
+    }
+    
+    public String getTongTienAsText() {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        String formattedNumber = decimalFormat.format(getTongTien());
+
+        return formattedNumber + " VNĐ";
     }
 
     public void setTongTien(float tongTien) {

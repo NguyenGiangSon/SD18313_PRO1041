@@ -1,18 +1,20 @@
 package fpt.views;
 
 import fpt.utils.MsgBox;
-import fpt.views.form.ViewsDashboard;
+import fpt.views.form.dashboard.ViewsDashboard;
 import fpt.views.swing.ScrollBar;
 import java.awt.Color;
 import fpt.views.event.EventMenuSelected;
-import fpt.views.form.ViewsHoaDon;
-import fpt.views.form.ViewsProducts;
+import fpt.views.form.ban_hang.ViewsBanHang;
+import fpt.views.form.ban_hang.ViewsBanHang2;
+import fpt.views.form.ban_hang.ViewsHoaDon;
+import fpt.views.form.san_pham.ViewsProducts;
 import javax.swing.JComponent;
 
 public class ViewMain extends javax.swing.JFrame {
 
     public ViewMain() {
-         initComponents();
+        initComponents();
         setBackground(new Color(0, 0, 0));
         menu.initMoving(ViewMain.this);
         sb.setVerticalScrollBar(new ScrollBar());
@@ -27,11 +29,13 @@ public class ViewMain extends javax.swing.JFrame {
                     setForm(new ViewsDashboard());
                 } else if (index == 1) {
                     setForm(new ViewsProducts());
-                } 
-                else if (index == 2) {
+                } else if (index == 2) {
+                    setForm(new ViewsBanHang());
+                } else if (index == 3) {
+                    setForm(new ViewsBanHang2());
+                } else if (index == 4) {
                     setForm(new ViewsHoaDon());
-                }
-                else if (index == 3) {
+                } else if (index == 5) {
                     boolean confirm = MsgBox.confirm(panelBorder2, "Bạn có chắc chắn muốn thoát?");
                     if (confirm) {
                         dispose();

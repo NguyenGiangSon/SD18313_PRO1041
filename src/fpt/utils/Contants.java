@@ -3,7 +3,7 @@ package fpt.utils;
 public class Contants {
     
     public static enum MODEL_VIEW {
-        THEM_MOI, SUA, XOA, CHI_TIET
+        THEM_MOI, SUA, XOA, CHI_TIET, THEM_MOI_CT
     }
 
     public static enum ChucVu {

@@ -43,10 +43,10 @@ public class ViewsProductDao extends DaoHelper {
         );
     }
 
-    public boolean insertSpCt(ViewsProductDto object) {
+    public boolean insertSpCt(String maSp, ViewsProductDto object) {
         return excuesInsertUpdateDelete(
                 "{CALL qlsp_insert_spct(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}",
-                object.getMaSanPham(),
+                maSp,
                 object.getId(),
                 object.getGiaBan(),
                 object.getGiaNhap(),
@@ -68,6 +68,29 @@ public class ViewsProductDao extends DaoHelper {
         );
     }
 
+    public boolean deleteProductCt(String maSp) {
+        return excuesInsertUpdateDelete(
+                "{CALL qlsp_delete_SanPhamCt(?)}",
+                maSp
+        );
+    }
+    
+    // update trang thai hoat dong
+    public boolean updateStatusProductCt(String maSp) {
+        return excuesInsertUpdateDelete(
+                "{CALL qlsp_update_status_sp(?)}",
+                maSp
+        );
+    }
+
+    // chuyển trạng thái về ngững hoạt động
+    public boolean deleteProduct2(String maSp) {
+        return excuesInsertUpdateDelete(
+                "{CALL qlsp_delete_SanPham(?)}",
+                maSp
+        );
+    }
+
     public List<ViewsProductDto> checkExists(String maSp) {
         return excuesList(
                 ViewsProductDto.class,
@@ -76,10 +99,19 @@ public class ViewsProductDao extends DaoHelper {
         );
     }
 
+    public List<ViewsProductDto> checkSpctExists(String maSpCt) {
+        return excuesList(
+                ViewsProductDto.class,
+                "Select maSanPhamCt from sanPhamCt where maSanPhamCt like ?",
+                maSpCt
+        );
+    }
+
     public boolean updateProduct(ViewsProductDto object) {
         return excuesInsertUpdateDelete(
-                "{CALL qlsp_update_SanPham(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}",
+                "{CALL qlsp_update_SanPham(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}",
                 object.getMaSanPham(),
+                object.getMaSanPhamCt(),
                 object.getTenSP(),
                 object.getGiaBan(),
                 object.getGiaNhap(),
@@ -99,5 +131,19 @@ public class ViewsProductDao extends DaoHelper {
                 ViewsProductDto.class,
                 "{CALL qlsp_select_by_id(?)}",
                 maSp).get(0);
+    }
+
+    public ViewsProductDto getSpCtById(String maSp, String maSpCt) {
+        return excuesObject(
+                ViewsProductDto.class,
+                "{CALL qlsp_select_spct_by_id(?, ?)}",
+                maSp, maSpCt);
+    }
+
+    public ViewsProductDto getById2(String maSp) {
+        return excuesObject(
+                ViewsProductDto.class,
+                "{CALL qlsp_select_by_id(?)}",
+                maSp);
     }
 }

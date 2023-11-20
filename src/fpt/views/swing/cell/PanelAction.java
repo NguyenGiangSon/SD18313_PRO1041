@@ -9,8 +9,8 @@ public class PanelAction extends javax.swing.JPanel {
     public PanelAction() {
         initComponents();
     }
-    
-        public void initEvent(TableActionEvent event, int indexRow) {
+
+    public void initEvent(TableActionEvent event, int indexRow) {
         cmdEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
